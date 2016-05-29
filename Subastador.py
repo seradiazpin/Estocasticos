@@ -65,18 +65,18 @@ class Subastador:
 
 
 
+def main():
+    subastador = Subastador()
+    compradores = []
+    for i in range(5):
+        compradores.append(cmpr.Comprador())
+    fin = 1
 
-subastador = Subastador()
-compradores = []
-for i in range(5):
-    compradores.append(cmpr.Comprador())
-fin = 1
+    GANADOR = 0
+    GASTO = 1
+    BONO = 2
 
-GANADOR = 0
-GASTO = 1
-BONO = 2
-
-for producto in subastador.productos.values():
-    retorno = subastador.hacer_subasta(producto,compradores)
-    compradores[retorno[GANADOR]].actualizar_datos(retorno[GASTO],retorno[BONO])
-    subastador.ganador = -1
+    for producto in subastador.productos.values():
+        retorno = subastador.hacer_subasta(producto,compradores)
+        compradores[retorno[GANADOR]].actualizar_datos(retorno[GASTO],retorno[BONO])
+        subastador.ganador = -1
