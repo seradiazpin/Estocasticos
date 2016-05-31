@@ -4,7 +4,7 @@ class Subastador:
     actions = {"informar": 1}
     def __init__(self):
         self.productos = {1:"Cosa",2:"Cosa2",3:"Cosa3"}
-        self.valores_estimados = {1:50,2:60,3:150}
+        self.valores_estimados = {1:50,2:80,3:150}
         self.max_puja = self.valores_estimados.values()[0]
         self.ganador = -1
         self.numero_de_pujas = 0
