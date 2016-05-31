@@ -4,13 +4,13 @@ class Comprador:
     moderado = {0.5:1.2}
     conservador = {0.3:1.2}
     def __init__(self):
-        self.dinero = 1000
+        self.dinero = 10000
         self.bono = 0
         self.objetos_comprados = 0
         self.asociado = False
         self.juega = True
         prob = rnd.random()
-        if(prob <=0.33):
+        if(prob <= 0.33):
             self.personalidad = self.ariesgado
             self.personalidad_str = "Ariesgado"
         elif(prob >=0.33 and prob <=0.66):
@@ -38,8 +38,15 @@ class Comprador:
         aries = self.personalidad.keys()[0]
         print "PROB", prob, "ARIES", aries
         if prob <= aries:
-            value = self.personalidad.values()[0]*actual
-            valido,valor = self.posible_puja(actual,value)
+            prob = rnd.random()
+            if(prob <=0.5):
+                delta = rnd.uniform(0.10,0.21);
+                value = (self.personalidad.values()[0])*actual
+                valido,valor = self.posible_puja(actual,value)
+            else:
+                delta = rnd.uniform(0.10,0.21);
+                value = (self.personalidad.values()[0]) * actual
+                valido, valor = self.posible_puja(actual, value)
             print "Valor a pujar",valor
             if valido:
                 print "-------------------------------------------------"
@@ -56,4 +63,4 @@ class Comprador:
         self.bono = bono
 
     def __str__(self):
-        return '\033[91m'+"Dinero: "+str(self.dinero)+" Bono: "+str(self.bono)+" "+self.personalidad_str+'\033[1m'
+        return '\033[91m'+"Dinero: "+str(self.dinero)+" Bono: "+str(self.bono)+" "+self.personalidad_str+" Ganados"+str(self.objetos_comprados)+'\033[1m'

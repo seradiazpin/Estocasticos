@@ -3,8 +3,8 @@ class Subastador:
     states = {"": 1}
     actions = {"informar": 1}
     def __init__(self):
-        self.productos = {1:"Cosa",2:"Cosa2",3:"Cosa3"}
-        self.valores_estimados = {1:50,2:80,3:150}
+        self.productos = {1:"Cosa",2:"Cosa2"}#,3:"Cosa3",4:"Cosa4",5:"Cosa5",6:"Cosa6",7:"Cosa7",8:"Cosa8",9:"Cosa9",10:"Cosa10",11:"Cosa11",12:"Cosa12"}
+        self.valores_estimados = {1:50,2:80}#,3:150,4:40,5:300,6:500,7:600,8:200,9:4,10:33,11:14,12:15}
         self.max_puja = self.valores_estimados.values()[0]
         self.ganador = -1
         self.numero_de_pujas = 0
@@ -19,6 +19,10 @@ class Subastador:
         if puj > self.max_puja:
             self.max_puja = puj
             self.ganador = ganadorIndex
+
+    def nuevo_product(self,puj,ganadorIndex):
+        self.max_puja = puj
+        self.ganador = ganadorIndex
 
     def terminar_subasta(self):
         if (self.numero_de_pujas == 1 or self.numero_de_pujas==0)  and self.max_puja != 0:
